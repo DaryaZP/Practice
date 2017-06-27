@@ -36,6 +36,7 @@
 			$('#weather-table').fadeOut();
 			$('#map').fadeOut();
 			$.get('http://api.openweathermap.org/data/2.5/forecast/daily?q=' + city.val() + '&APPID=8877707839064c9331f975ece3ad7cc6&units=metric')
+			
 			.done(function(response) {
 				$('.bold').removeClass('bold');
 				city.val('');
@@ -87,11 +88,17 @@
 			if (city.val() == '') {
 				city.addClass('warning');
 				dateinput.removeClass('warning');
-			} else {
+				alert ("Введите населенный пункт!");
+			} 
+			else {alert ("Город не найден!");}
+				
+				if (dateinput.val() == '') {
 				dateinput.addClass('warning');
 				city.removeClass('warning');
+				alert ("Введите дату!");
 			}
+			
 		}
-	
+		
 	})
 })
