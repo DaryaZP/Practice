@@ -85,20 +85,21 @@
 				})
 			})
 		} else {
-			if (city.val() == '') {
-				city.addClass('warning');
-				dateinput.removeClass('warning');
-				alert ("Введите населенный пункт!");
-			} 
-			else {alert ("Город не найден!");}
-				
-				if (dateinput.val() == '') {
+			if (dateinput.val() == '') {
 				dateinput.addClass('warning');
 				city.removeClass('warning');
 				alert ("Введите дату!");
 			}
-			
-		}
-		
+			if (city.val() == '') {
+				city.addClass('warning');
+				dateinput.removeClass('warning');
+				alert ("Введите населенный пункт!");
+			}			
+		  }		
+		  try {
+    		throw new Error("Город не найден!");
+			} catch (e) {
+   		 alert(e.name + ": " + e.message);
+			}
 	})
 })
